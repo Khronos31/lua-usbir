@@ -2,7 +2,8 @@ package = "lua-usbir"
 version = "1.0-1" -- バージョン確定
 source = {
    url = "git+https://github.com/Khronos31/lua-usbir.git",
-   tag = "v1.0"
+   tag = "v1.0",
+   recursive = true
 }
 description = {
    summary = "Lua binding for USB-IR-Remote libusbir",
