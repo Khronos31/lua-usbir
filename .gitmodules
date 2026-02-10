@@ -1,0 +1,3 @@
+[submodule "libusbir"]
+	path = libusbir
+	url = https://github.com/Khronos31/libusbir.git
