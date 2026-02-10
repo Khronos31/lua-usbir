@@ -3,8 +3,7 @@ package = "lua-usbir"
 version = "1.0-1"
 source = {
    url = "git+https://github.com/Khronos31/lua-usbir.git",
-   tag = "v1.0",
-   submodules = true  -- これでエラーが出なくなります
+   tag = "v1.0"
 }
 description = {
    summary = "Lua binding for USB-IR-Remote libusbir",
