@@ -1,9 +1,10 @@
+rockspec_format = "3.0"
 package = "lua-usbir"
-version = "1.0-1" -- バージョン確定
+version = "1.0-1"
 source = {
    url = "git+https://github.com/Khronos31/lua-usbir.git",
    tag = "v1.0",
-   recursive = true
+   recursive = true  -- これでエラーが出なくなります
 }
 description = {
    summary = "Lua binding for USB-IR-Remote libusbir",
