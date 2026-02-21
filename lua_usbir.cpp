@@ -10,15 +10,18 @@ static USBIRDevice** to_dev(lua_State *L) {
     return (USBIRDevice**)luaL_checkudata(L, 1, USBIR_METATABLE);
 }
 
-// Lua: usbir.open()
+// Lua: usbir.open(index)
 static int l_open(lua_State *L) {
-    USBIRDevice *dev = openUSBIR();
+    // 引数があれば取得（デフォルトは0）
+    int index = (int)luaL_optinteger(L, 1, 0); 
+    
+    USBIRDevice *dev = openUSBIR(index); // 修正した usbir.h/cpp の関数を呼び出し
     if (!dev) {
         lua_pushnil(L);
-        lua_pushstring(L, "Could not open USB IR device.");
+        lua_pushfstring(L, "Could not open USB IR device at index %d.", index);
         return 2;
     }
-    // Luaのメモリ管理下にポインタを格納
+    
     USBIRDevice **ud = (USBIRDevice**)lua_newuserdata(L, sizeof(USBIRDevice*));
     *ud = dev;
     luaL_getmetatable(L, USBIR_METATABLE);
